@@ -1,6 +1,7 @@
 # TUGAS-MATEMATIKA-DISKRIT-PERT-7
 # NAMA : DIVA OKTIANA PANCA RAMADANI <br>
 # NIM : 312510313 <br>
+# Simulasi Tabel Kebenaran (Truth Table)
 import itertools
 # Definisi fungsi implikasi
 def implies(p, q):
@@ -10,7 +11,8 @@ print(f"{'p':<5}{'q':<5}{'p and q':<10}{'p or q':<10}{'¬p':<5}{'p → q':<8}")
 # Iterasi semua kombinasi p dan q (True/False)
 for p, q in itertools.product([True, False], repeat=2):
  print(f"{p!s:<5}{q!s:<5}{(p and q)!s:<10}{(p or q)!s:<10}{(not p)!s:<5}{implies(p, q)!s:<8}")
- #Jika n² ganjil, maka n juga ganjil.
+# Pembuktian Kontradiksi Sederhana (Logika Matematis)
+#Jika n² ganjil, maka n juga ganjil.
 #Kita buktikan secara logika bahwa kebalikannya menghasilkan kontradiksi.
 
 def is_odd(n):
@@ -28,16 +30,7 @@ def proof_by_contradiction():
             return False
     print("Tidak ada kontradiksi ditemukan → pernyataan benar (jika n² ganjil maka n ganjil).")
     return True
-
-# Jalankan fungsi
-proof_by_contradiction()
-import itertools
-import itertools
-
-def implies(a, b):
-    """Fungsi implikasi: a → b adalah True jika tidak (a dan not b)"""
-    return not (a and not b)
-
+# Uji Tautologi (dengan Table Kebenaran)
 def check_tautology():
     tautology = True
     print("Memeriksa apakah (p ∧ q) → p adalah tautologi:")
