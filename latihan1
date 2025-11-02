@@ -1,1 +1,9 @@
-
+import itertools
+# Definisi fungsi implikasi
+def implies(p, q):
+ return (not p) or q
+# Header tabel
+print(f"{'p':<5}{'q':<5}{'p and q':<10}{'p or q':<10}{'¬p':<5}{'p → q':<8}")
+# Iterasi semua kombinasi p dan q (True/False)
+for p, q in itertools.product([True, False], repeat=2):
+ print(f"{p!s:<5}{q!s:<5}{(p and q)!s:<10}{(p or q)!s:<10}{(not p)!s:<5}{implies(p, q)!s:<8}")
