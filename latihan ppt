@@ -1,0 +1,50 @@
+# logika_matematika.py
+# Program untuk membuktikan soal logika matematika
+
+print("=== Soal 1: Bukti Kontradiksi ===")
+print("Tidak ada bilangan bulat n sehingga n² = 3m + 2.")
+print("Bukti: Asumsikan ada n, maka n² ≡ 2 mod 3. Tapi 0²=0, 1²=1, 2²=1 mod 3. Tidak ada yang ≡2, kontradiksi.")
+print("Verifikasi dengan kode: Cek untuk n dari -10 hingga 10.")
+
+# Cek untuk n kecil apakah ada m integer yang memenuhi n² = 3m + 2
+found = False
+for n in range(-10, 11):
+    for m in range(-10, 11):
+        if n**2 == 3*m + 2:
+            print(f"Ditemukan: n={n}, m={m}")
+            found = True
+if not found:
+    print("Tidak ada solusi untuk n, m integer kecil. Kontradiksi terbukti.")
+
+print("\n=== Soal 2: Tautologi (p ∧ q) ∧ (q ∨ p) ===")
+print("Truth table untuk (p ∧ q) ∧ (q ∨ p):")
+
+# Truth table untuk (p ∧ q) ∧ (q ∨ p)
+is_tautology = True
+for p in [True, False]:
+    for q in [True, False]:
+        pq_and = p and q
+        q_or_p = q or p
+        result = pq_and and q_or_p
+        print(f"p={p}, q={q} -> (p∧q)∧(q∨p) = {result}")
+        if not result:
+            is_tautology = False
+print(f"Apakah tautologi? {is_tautology}")
+
+print("\n=== Soal 3: Validitas (p → q) ∧ (q → r) → (p → r) ===")
+print("Truth table untuk (p→q)∧(q→r) → (p→r):")
+
+# Truth table untuk (p → q) ∧ (q → r) → (p → r)
+is_valid = True
+for p in [True, False]:
+    for q in [True, False]:
+        for r in [True, False]:
+            p_imp_q = not p or q
+            q_imp_r = not q or r
+            premise = p_imp_q and q_imp_r
+            conclusion = not p or r
+            result = not premise or conclusion  # premise → conclusion
+            print(f"p={p}, q={q}, r={r} -> Premise→Conclusion = {result}")
+            if not result:
+                is_valid = False
+print(f"Apakah valid? {is_valid}")
