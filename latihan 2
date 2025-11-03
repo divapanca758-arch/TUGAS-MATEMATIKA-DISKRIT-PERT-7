@@ -1,0 +1,20 @@
+# bukti_kontradiksi.py
+# Program bukti kontradiksi: Jika n² ganjil, maka n juga ganjil
+
+def is_odd(n):
+    """Fungsi untuk cek apakah n ganjil."""
+    return n % 2 == 1
+
+def proof_by_contradiction():
+    
+    print("Mengasumsikan kebalikan: Ada n genap sehingga n² ganjil.")
+    for n in range(1, 101):  # Cek untuk n dari 1 hingga 100
+        if is_odd(n**2) and not is_odd(n):  # n genap tapi n² ganjil
+            print(f"Kontradiksi ditemukan pada n={n} (n genap, n²={n**2} ganjil)!")
+            return False  # Kontradiksi, pernyataan asli salah
+    print("Tidak ada kontradiksi ditemukan → pernyataan benar (jika n² ganjil maka n ganjil).")
+    return True
+
+# Jalankan bukti
+result = proof_by_contradiction()
+print(f"Hasil bukti: {'Benar' if result else 'Salah'}")
